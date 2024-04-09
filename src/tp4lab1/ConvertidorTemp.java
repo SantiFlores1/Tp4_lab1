@@ -130,9 +130,21 @@ public class ConvertidorTemp extends javax.swing.JFrame {
 
     private void jbConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConvertirActionPerformed
         // TODO add your handling code here:
-        double f=(Double.parseDouble(jtTemp.getText())*9/5)+32;
-        JOptionPane.showMessageDialog(this, "Grados en Fahrenheit:  "+f+"°F");
-        jtTemp.setText("");
+        if (jtTemp.getText().matches("-?\\d+(\\.\\d+)?")) {
+               double f = (Double.parseDouble(jtTemp.getText()) * 9 / 5) + 32;
+               
+               JOptionPane.showMessageDialog(this, "Grados en Fahrenheit:  "+f+"°F");
+               jtTemp.setText("");
+        } 
+        else if (jtTemp.getText().isEmpty()) {
+               JOptionPane.showMessageDialog(this, "No ha ingresado la temperatura a convertir.");
+            
+        }
+        else {
+               JOptionPane.showMessageDialog(this, "Ingrese sólo números (positivos, negativos, decimales).");
+               jtTemp.setText("");
+        }
+                       
     }//GEN-LAST:event_jbConvertirActionPerformed
 
     /**
